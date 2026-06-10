@@ -116,7 +116,7 @@
     { ic:'🎯', name:'PPC-Tools (intern)',  desc:'ASIN-Optimizer, Audit, Bid-Optimizer, Harvesting & mehr.',   url:'https://adsmasters.github.io/ppc-tools/', sso:true },
     // Eigener Login (andere Projekte / Hosting)
     { ic:'🏷️', name:'Buy-Box Monitor',     desc:'Buy-Box-Wechsel, Preise & Seller je Kunde (Keepa).',         url:'https://buybox-monitor-adsmasters-projects.vercel.app/', sso:false },
-    { ic:'🖼️', name:'Bild-Tool / Image Studio', desc:'Produktbild-Erstellung.',                              url:'', sso:false, soon:true },
+    { ic:'🖼️', name:'Image Studio',        desc:'Produktbild-Erstellung.',                                    url:'https://image-studio-lime-alpha.vercel.app/', sso:false },
   ];
 
   var loginScreen = document.getElementById('loginScreen');
@@ -176,7 +176,7 @@
   document.getElementById('forgot').addEventListener('click', function(){
     var email=document.getElementById('email').value.trim();
     if(!email){ showMsg('Bitte zuerst deine E-Mail eingeben.'); return; }
-    sb.auth.resetPasswordForEmail(email, { redirectTo: location.href }).then(function(res){
+    sb.auth.resetPasswordForEmail(email, { redirectTo: new URL('set-password.html', location.href).href }).then(function(res){
       if(res.error) throw res.error;
       showMsg('Reset-Link gesendet an '+email+'.', true);
     }).catch(function(){ showMsg('Reset-Link konnte nicht gesendet werden.'); });
